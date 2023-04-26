@@ -13,8 +13,10 @@ import com.mycompany.dbms.frontend.Menu;
 public class DBMS {
 
     public static void main(String[] args) {
+        
         Menu ventana = new Menu();
         ventana.setVisible(true);
-            
+        
+        
     }
 }
