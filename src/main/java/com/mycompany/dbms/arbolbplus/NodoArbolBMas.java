@@ -133,39 +133,7 @@ public class NodoArbolBMas {
         rightSibling.siguienteHoja = siguienteHoja;
         siguienteHoja = rightSibling;
     }
-    
-//    public void dividirNodos(int index, int order) {
-//        NodoArbolBMas right = new NodoArbolBMas(order, esHoja); // Crear un nuevo nodo derecho
-//        NodoArbolBMas left = hijos[index];// Obtener el nodo izquierdo actual
-//        // Establecer el número de llaves en los nodos izquierdo y derecho
-//        right.numllaves = order - 1;
-//        left.numllaves = order - 1;
-//        // Mantener la estructura de lista enlazada estableciendo la siguiente hoja
-//        right.siguienteHoja = left.siguienteHoja;
-//        left.siguienteHoja = right;
-//         // Mover las llaves y valores desde el nodo izquierdo al nodo derecho
-//        for (int i = 0; i < order - 1; i++) {
-//            right.llaves[i] = left.llaves[i + order];
-//            right.valores[i] = left.valores[i + order];
-//        }
-//         // Si el nodo izquierdo no es una hoja, mover los hijos correspondientes al nodo derecho
-//        if (!left.esHoja) {
-//            for (int i = 0; i < order; i++) {
-//                right.hijos[i] = left.hijos[i + order];
-//            }
-//        }
-//        // Mover los hijos y ajustar las llaves y valores en el nodo actual
-//        for (int i = numllaves; i > index; i--) {
-//            hijos[i + 1] = hijos[i];
-//            llaves[i] = llaves[i - 1];
-//            valores[i] = valores[i - 1];
-//        }
-//          // Establecer el hijo derecho y la llave y valor correspondientes en el nodo actual
-//        hijos[index + 1] = right;
-//        llaves[index] = left.llaves[order - 1];
-//        valores[index] = left.valores[order - 1];
-//        numllaves++;// Incrementar el número de llaves en el nodo actual
-//    }
+   
     
     
 

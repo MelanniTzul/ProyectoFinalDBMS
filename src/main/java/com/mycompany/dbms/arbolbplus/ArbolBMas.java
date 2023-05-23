@@ -37,7 +37,8 @@ public class ArbolBMas {
     }
 
     /* Se utiliza para insertar una llave y valor en un nodo del árbol B+*/
-    private void  insertarNoCompleto(NodoArbolBMas nodo, int llave, ListaColumna valor) {
+   // private void  insertarNoCompleto(NodoArbolBMas nodo, int llave, ListaColumna valor) {
+       private void  insertarNoCompleto(NodoArbolBMas nodo, int llave, ListaColumna valor) {
         int i = nodo.getNumllaves() - 1;
         if (nodo.isEsHoja()) { // Si el nodo es una hoja
             // Desplazarse hacia atrás hasta encontrar la posición adecuada para la nueva llave
@@ -67,7 +68,7 @@ public class ArbolBMas {
                 }
             }
             // Llamar recursivamente a insertNonFull en el hijo correspondiente
-            insertNonFull(nodo.getHijos()[i], llave, valor);
+            insertarNoCompleto(nodo.getHijos()[i], llave, valor);
         }
     }
     
