@@ -139,12 +139,13 @@ public class LecturaArchivo {
             String nombreEtiquetaRaiz = raiz.getTagName();
             NodeList nodoLista = documento.getElementsByTagName(nombreEtiquetaRaiz);
             NodeList lista = nodoLista.item(0).getChildNodes();
+            Estructura st=null;
             for (int i = 0; i < lista.getLength(); i++) {
                 Node nodo = lista.item(i);
                 if (nodo.getNodeType() == Node.ELEMENT_NODE) {
                     ListaColumna listaFilas = new ListaColumna();
                     String nombre = nodo.getNodeName().replaceAll(" ", "");
-                    Estructura st = listaEstructura.getEstructura(nombre);
+                     st = listaEstructura.getEstructura(nombre);
                     int cantidadColumnas = 0;
                     if (st != null) {
                         cantidadColumnas = st.getColumnas().obtenerCantidad();
@@ -179,9 +180,8 @@ public class LecturaArchivo {
 
                         }
                         if (listaFilas.obtenerCantidad() == cantidadColumnas) {
-                            txtArea.append("!Fila Agregada¡ \n");
                             st.ingresarFila(listaFilas);
-                            st.getArbol().imprimirValores(txtArea);
+                           
                         } else {
                             txtArea.append("Los datos no son correctos para crear una fila\n");
                         }
@@ -191,6 +191,8 @@ public class LecturaArchivo {
                     }
                 }
             }
+             st.getArbol().imprimirValores(txtArea);
+             txtArea.append("!Creacion de  filas  exitosas¡ \n");
         } catch (ParserConfigurationException | SAXException | IOException ex) {
         }
     }
