@@ -50,7 +50,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea3 = new javax.swing.JTextArea();
-        btnCargarArchivoDelete = new javax.swing.JButton();
+        btnCargarArchivoEliminar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnReportes = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -109,7 +109,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCargarArchivoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 41, Short.MAX_VALUE))
+                .addGap(0, 55, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,7 +128,12 @@ public class Menu extends javax.swing.JFrame {
         jTextArea3.setRows(5);
         jScrollPane3.setViewportView(jTextArea3);
 
-        btnCargarArchivoDelete.setText("Cargar Archivo");
+        btnCargarArchivoEliminar.setText(" Archivo Eliminar");
+        btnCargarArchivoEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarArchivoEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -137,15 +142,15 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCargarArchivoDelete)
-                .addGap(0, 46, Short.MAX_VALUE))
+                .addComponent(btnCargarArchivoEliminar)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(257, 257, 257)
-                .addComponent(btnCargarArchivoDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCargarArchivoEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(332, Short.MAX_VALUE))
         );
 
@@ -198,20 +203,14 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
-        try {
-            File archivo = new File("ruta/al/archivo.txt");
-            FileReader fr = new FileReader(archivo);
-            BufferedReader br = new BufferedReader(fr);
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos DAT", "dat");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = fileChooser.showOpenDialog(this);
+        if (result != JFileChooser.CANCEL_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
 
-            String linea;
-            while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
-            }
-
-            br.close();
-            fr.close();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }//GEN-LAST:event_btnReportesActionPerformed
 
@@ -224,7 +223,7 @@ public class Menu extends javax.swing.JFrame {
         int result = fileChooser.showOpenDialog(this);
         if (result != JFileChooser.CANCEL_OPTION) {
             File archivo = fileChooser.getSelectedFile();
-            la.ingresarEstructuraArchivo(archivo,TextAreaCargaMasiva);
+            la.ingresarEstructuraArchivo(archivo, TextAreaCargaMasiva);
         }
     }//GEN-LAST:event_btnCargaMasivaActionPerformed
 
@@ -240,6 +239,19 @@ public class Menu extends javax.swing.JFrame {
             la.agregarFilaArchivo(archivo, txtAreaCargaDatos);
         }
     }//GEN-LAST:event_btnCargarArchivoDatosActionPerformed
+
+    /*Boton Eliminar estructuras*/
+    private void btnCargarArchivoEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoEliminarActionPerformed
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos DAT", "dat");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = fileChooser.showOpenDialog(this);
+        if (result != JFileChooser.CANCEL_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
+
+        }
+    }//GEN-LAST:event_btnCargarArchivoEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,7 +292,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JTextArea TextAreaCargaMasiva;
     private javax.swing.JButton btnCargaMasiva;
     private javax.swing.JButton btnCargarArchivoDatos;
-    private javax.swing.JButton btnCargarArchivoDelete;
+    private javax.swing.JButton btnCargarArchivoEliminar;
     private javax.swing.JTabbedPane btnReporte;
     private javax.swing.JButton btnReportes;
     private javax.swing.JPanel jPanel1;

@@ -110,7 +110,7 @@
                       <Component id="jScrollPane4" min="-2" pref="457" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnCargarArchivoDatos" min="-2" pref="135" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="41" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="55" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -169,8 +169,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane3" min="-2" pref="454" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="btnCargarArchivoDelete" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
+                      <Component id="btnCargarArchivoEliminar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -179,7 +179,7 @@
                   <Component id="jScrollPane3" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="257" max="-2" attributes="0"/>
-                      <Component id="btnCargarArchivoDelete" min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="btnCargarArchivoEliminar" min="-2" pref="45" max="-2" attributes="0"/>
                       <EmptySpace pref="332" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -201,10 +201,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnCargarArchivoDelete">
+            <Component class="javax.swing.JButton" name="btnCargarArchivoEliminar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cargar Archivo"/>
+                <Property name="text" type="java.lang.String" value=" Archivo Eliminar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCargarArchivoEliminarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
