@@ -61,7 +61,7 @@ public class ArbolBMas {
             // Verificar si el hijo tiene el número máximo de llaves permitidas
             if (nodo.getHijos()[i].getNumllaves() == 2 * orden - 1) {
                 // Realizar una división de nodos para mantener el equilibrio del árbol
-                nodo.dividirNodos(i, orden);
+                nodo.dividirNodos(i, nodo.getHijos()[i]);
                 // Ajustar i según la posición de la nueva llave en el nodo actualizado
                 if (llave > nodo.getLlaves()[i]) {
                     i++;
