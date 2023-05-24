@@ -51,8 +51,6 @@ public class ListaColumna {
     }
     
     
-  
-    
     //Imprime la lista
     public String imprimirLista(){
         String texto="";
@@ -63,5 +61,28 @@ public class ListaColumna {
         }
         
         return texto;
+    }
+    
+    /*@Override Indicar que un método en una clase hija está sobrescribiendo un método de la clase padre*/
+    @Override
+    public String toString(){
+         String texto= "";
+        NodoColumna actual = raiz;
+        while (actual != null) {
+            texto += actual.getNombre()+ ": " + actual.getTipo()+ "\n";
+            actual = actual.getSiguiente();
+        }
+        return texto;
+    }
+    
+    /*Función que devuelve el número de elementos de la lista enlazada */
+    public int obtenerCantidad() {
+        int cantidad = 0;
+        NodoColumna actual = raiz;
+        while (actual != null) {
+            cantidad++;
+            actual = actual.getSiguiente();
+        }
+        return cantidad;
     }
 }

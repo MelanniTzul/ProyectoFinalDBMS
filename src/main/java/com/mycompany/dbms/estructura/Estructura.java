@@ -35,7 +35,7 @@ public class Estructura {
 //    }
   
     
-    public void ingresarColumna(ListaColumna dato){
+    public void ingresarFila(ListaColumna dato){
         this.arbol.insertar(0, dato);
     }
   
@@ -70,6 +70,14 @@ public class Estructura {
 
     public void setColumnas(ListaColumna columnas) {
         this.columnas = columnas;
+    }
+
+    public ArbolBMas getArbol() {
+        return arbol;
+    }
+
+    public void setArbol(ArbolBMas arbol) {
+        this.arbol = arbol;
     }
  
     
