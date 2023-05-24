@@ -4,6 +4,8 @@
  */
 package com.mycompany.dbms.estructura;
 
+import javax.swing.JTextArea;
+
 /**
  *
  * @author melanni
@@ -54,10 +56,10 @@ public class ListaEstructura {
    }
    
    
-   public void imprimirLista(){
+   public void imprimirLista(JTextArea txtArea){
        Estructura actual = raiz;
        while (actual!=null) {
-           System.out.println("Tabla:" + actual.getNombre() + ", Clave: "+ actual.getLlave()+", Columnas:\n"+actual.getColumnas().imprimirLista());
+           txtArea.append("Tabla:" + actual.getNombre() + ", Clave: "+ actual.getLlave()+", Columnas:\n"+actual.getColumnas().imprimirLista()+"\n");
            actual=actual.getSiguiente();
            
        }

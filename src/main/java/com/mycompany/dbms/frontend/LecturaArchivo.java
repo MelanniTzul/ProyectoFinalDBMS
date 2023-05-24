@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JTextArea;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,7 +34,7 @@ public class LecturaArchivo {
         listaEstructura = new ListaEstructura();
     }
 
-    public void ingresarEstructuraArchivo(File archivo) {
+    public void ingresarEstructuraArchivo(File archivo,  JTextArea txtArea) {
         try {
             // Se crea una instancia del factory para obtener el builder
             DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
@@ -50,7 +51,7 @@ public class LecturaArchivo {
                     Estructura estructura = new Estructura(); //Estructura 
                     ListaColumna lista = new ListaColumna(); //Lista de campos de la estructura             
                     NodeList nodosSecundarios = nodo.getChildNodes();
-                    String llave = null; //llave de la tabla
+                    String llave = null; //clave de la tabla
                     //Recorrido de los hijos de una estructura
                     for (int j = 0; j < nodosSecundarios.getLength(); j++) {
                         Node nodoHija = nodosSecundarios.item(j);
@@ -68,7 +69,7 @@ public class LecturaArchivo {
                                     System.out.println("La tabla con el nombre: " + valorNodo + " ya existe! ");
                                     break;
                                 }
-                            } else if (nombreNodo.equals("llave")) {
+                            } else if (nombreNodo.equals("clave")) {
                                 llave = valorNodo;
                             } else if (nombreNodo.equals("relacion")) {
                                 boolean table = false;//Bandera para saber que si existe la tabla de referencia
@@ -81,6 +82,7 @@ public class LecturaArchivo {
                                         String nombre = hijaRelacion.getNodeName().replaceAll(" ", "");
                                         String value = hijaRelacion.getTextContent().replaceAll(" ", "");
                                         Estructura st = listaEstructura.getEstructura(nombre);
+                                     
                                         if (st != null) {
                                             if (st.getLlave().equals(value)) {
                                                 table = true;
@@ -121,12 +123,13 @@ public class LecturaArchivo {
         } catch (ParserConfigurationException | SAXException | IOException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-        listaEstructura.imprimirLista();
+        listaEstructura.imprimirLista( txtArea);
     }
 
+    
+    
     /*FUNCION */
     public void agregarFilaArchivo(File archivo) {
-        listaEstructura.imprimirLista();
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();

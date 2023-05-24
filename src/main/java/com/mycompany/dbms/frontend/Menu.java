@@ -7,7 +7,6 @@ package com.mycompany.dbms.frontend;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.logging.FileHandler;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -26,8 +25,8 @@ public class Menu extends javax.swing.JFrame {
 
         initComponents();
         this.setLocationRelativeTo(this);
-        
-        la= new LecturaArchivo();//nuevo objeto de lectura de archivos
+
+        la = new LecturaArchivo();//nuevo objeto de lectura de archivos
     }
 
     /**
@@ -43,7 +42,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnCargaMasiva = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TextAreaCargaMasiva = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea4 = new javax.swing.JTextArea();
@@ -66,9 +65,9 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TextAreaCargaMasiva.setColumns(20);
+        TextAreaCargaMasiva.setRows(5);
+        jScrollPane1.setViewportView(TextAreaCargaMasiva);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -96,6 +95,11 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTextArea4);
 
         btnCargarArchivoDatos.setText("Cargar Datos");
+        btnCargarArchivoDatos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCargarArchivoDatosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -211,7 +215,7 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnReportesActionPerformed
 
-    //Cargar archivo de varias estructuras
+    //BOTON PARA CARGAR ARCHIVO DE VARIAS ESTRUCTAS 
     private void btnCargaMasivaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargaMasivaActionPerformed
         JFileChooser fileChooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos XML", "xml");
@@ -220,9 +224,14 @@ public class Menu extends javax.swing.JFrame {
         int result = fileChooser.showOpenDialog(this);
         if (result != JFileChooser.CANCEL_OPTION) {
             File archivo = fileChooser.getSelectedFile();
-            la.ingresarEstructuraArchivo(archivo);
+            la.ingresarEstructuraArchivo(archivo,TextAreaCargaMasiva);
         }
     }//GEN-LAST:event_btnCargaMasivaActionPerformed
+
+    /*BOTON PARA CARGAR LOS ATRIBUTOS DE LA TABLA*/
+    private void btnCargarArchivoDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoDatosActionPerformed
+     
+    }//GEN-LAST:event_btnCargarArchivoDatosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,6 +269,7 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TextAreaCargaMasiva;
     private javax.swing.JButton btnCargaMasiva;
     private javax.swing.JButton btnCargarArchivoDatos;
     private javax.swing.JButton btnCargarArchivoDelete;
@@ -273,7 +283,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea jTextArea4;
