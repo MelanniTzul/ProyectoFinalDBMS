@@ -128,7 +128,7 @@ public class LecturaArchivo {
 
     
     
-    /*FUNCION */
+    /*FUNCION  AGREGA FILAS A LA TABLA EXISTENTE*/
     public void agregarFilaArchivo(File archivo, JTextArea txtArea) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
@@ -192,7 +192,7 @@ public class LecturaArchivo {
                 }
             }
              st.getArbol().imprimirValores(txtArea);
-             txtArea.append("!Creacion de  filas  exitosas¡ \n");
+             txtArea.append("!Creacion de  filas  exitosas¡ \n\n");
         } catch (ParserConfigurationException | SAXException | IOException ex) {
         }
     }

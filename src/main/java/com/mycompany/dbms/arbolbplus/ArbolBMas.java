@@ -19,7 +19,7 @@ public class ArbolBMas {
 
     // Constructor:
     public ArbolBMas() {
-        this.orden = 4;// - Crea un nuevo árbol B+ con un orden predeterminado de 4.
+        this.orden = 200;// - Crea un nuevo árbol B+ con un orden predeterminado .
         this.raiz = new NodoArbolBMas(orden, true); // - Inicializa la raíz como un nuevo nodo hoja.
     }
 

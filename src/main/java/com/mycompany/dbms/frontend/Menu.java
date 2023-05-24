@@ -154,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(332, Short.MAX_VALUE))
         );
 
-        btnReporte.addTab("Eliminacion", jPanel4);
+        btnReporte.addTab("Eliminación", jPanel4);
 
         btnReportes.setText("Reportes");
         btnReportes.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +204,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReportesActionPerformed
         JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos DAT", "dat");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos DAT", "rpt");
         fileChooser.setFileFilter(filter);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         int result = fileChooser.showOpenDialog(this);
