@@ -129,7 +129,7 @@ public class LecturaArchivo {
     
     
     /*FUNCION */
-    public void agregarFilaArchivo(File archivo) {
+    public void agregarFilaArchivo(File archivo, JTextArea txtArea) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -162,31 +162,31 @@ public class LecturaArchivo {
                                             if (entero(valorNodo)) {
                                                 listaFilas.insertarFinal(new NodoColumna(nombreNodo, valorNodo));
                                             } else {
-                                                System.out.println("El valor no es un entero");
+                                                txtArea.append("El valor no es un entero \n");
                                                 break;
                                             }
                                         } else {
                                             listaFilas.insertarFinal(new NodoColumna(nombreNodo, valorNodo));
                                         }
                                     } else {
-                                        System.out.println("La columna " + nombreNodo + ", no contiene dato");
+                                        txtArea.append("La columna " + nombreNodo + ", no contiene dato\n");
                                     }
                                 } else {
-                                    System.out.println("La columna " + nombreNodo + ", no existe");
+                                    txtArea.append("La columna " + nombreNodo + ", no existe\n");
                                     break;
                                 }
                             }
 
                         }
                         if (listaFilas.obtenerCantidad() == cantidadColumnas) {
-                            System.out.println("Fila Agregada");
+                            txtArea.append("!Fila Agregada¡ \n");
                             st.ingresarFila(listaFilas);
-                            st.getArbol().printValues();
+                            st.getArbol().imprimirValores(txtArea);
                         } else {
-                            System.out.println("Los datos no son correctos para crear una fila");
+                            txtArea.append("Los datos no son correctos para crear una fila\n");
                         }
                     } else {
-                        System.out.println("La tabla: " + nombre + ", NO EXISTE");
+                        txtArea.append("La tabla: " + nombre + ", NO EXISTE\n");
                         break;
                     }
                 }

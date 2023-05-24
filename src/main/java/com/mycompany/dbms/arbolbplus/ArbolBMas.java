@@ -5,6 +5,7 @@
 package com.mycompany.dbms.arbolbplus;
 
 import com.mycompany.dbms.estructura.ListaColumna;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -91,16 +92,16 @@ public class ArbolBMas {
     }
     
     
-    
-     public void printValues() {
+    //Funcion que me imprime todas las filas creadas
+     public void imprimirValores(JTextArea txtArea) {
         NodoArbolBMas nodo = raiz;
         while (!nodo.isEsHoja()) {
             nodo = nodo.getHijos()[0];
         }
         while (nodo != null) {
             for (int i = 0; i < nodo.getNumllaves(); i++) {
-                System.out.println(nodo.getValores()[i].toString());
-                System.out.println("\n\n");
+                txtArea.append(nodo.getValores()[i].toString());
+                txtArea.append("\n\n");
             }
             nodo = nodo.getSiguienteHoja();
         }

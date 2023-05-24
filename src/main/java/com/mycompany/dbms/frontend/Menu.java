@@ -45,7 +45,7 @@ public class Menu extends javax.swing.JFrame {
         TextAreaCargaMasiva = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        txtAreaCargaDatos = new javax.swing.JTextArea();
         btnCargarArchivoDatos = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -90,9 +90,9 @@ public class Menu extends javax.swing.JFrame {
 
         btnReporte.addTab("Carga Masiva", jPanel2);
 
-        jTextArea4.setColumns(20);
-        jTextArea4.setRows(5);
-        jScrollPane4.setViewportView(jTextArea4);
+        txtAreaCargaDatos.setColumns(20);
+        txtAreaCargaDatos.setRows(5);
+        jScrollPane4.setViewportView(txtAreaCargaDatos);
 
         btnCargarArchivoDatos.setText("Cargar Datos");
         btnCargarArchivoDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -228,9 +228,17 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCargaMasivaActionPerformed
 
-    /*BOTON PARA CARGAR LOS ATRIBUTOS DE LA TABLA*/
+    /*BOTON PARA CARGAR LOS ATRIBUTOS DE LA TABLA, AGREGA FILAS */
     private void btnCargarArchivoDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarArchivoDatosActionPerformed
-     
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos DAT", "dat");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        int result = fileChooser.showOpenDialog(this);
+        if (result != JFileChooser.CANCEL_OPTION) {
+            File archivo = fileChooser.getSelectedFile();
+            la.agregarFilaArchivo(archivo, txtAreaCargaDatos);
+        }
     }//GEN-LAST:event_btnCargarArchivoDatosActionPerformed
 
     /**
@@ -285,6 +293,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea txtAreaCargaDatos;
     // End of variables declaration//GEN-END:variables
 }
