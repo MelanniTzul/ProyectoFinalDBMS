@@ -11,34 +11,24 @@ import com.mycompany.dbms.arbolbplus.ArbolBMas;
  * @author melanni
  */
 public class Estructura {
-    
-    /*Atributos*/
+
+    /* Atributos */
     private String nombre;
     private String llave;
     private Estructura siguiente;
     private ListaColumna columnas;
     private ArbolBMas arbol;
 
-    
-    
-    
-    /*Constructor vacio*/
-    public Estructura(){
-        this.siguiente=null;
-        this.arbol=new ArbolBMas();
-        
+    /* Constructor vacio */
+    public Estructura() {
+        this.siguiente = null;
+        this.arbol = new ArbolBMas();
+
     }
-    
-//      /*Constructor*/
-//    public Estructura(){
-//        this.siguiente=null;
-//    }
-  
-    
-    public void ingresarFila(ListaColumna dato){
+
+    public void ingresarFila(ListaColumna dato) {
         this.arbol.insertar(0, dato);
     }
-  
 
     public String getNombre() {
         return nombre;
@@ -79,11 +69,4 @@ public class Estructura {
     public void setArbol(ArbolBMas arbol) {
         this.arbol = arbol;
     }
- 
-    
-    
-    
-    
-    
-    
 }

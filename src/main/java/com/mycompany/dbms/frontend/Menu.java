@@ -49,7 +49,7 @@ public class Menu extends javax.swing.JFrame {
         btnCargarArchivoDatos = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        txtAreaELiminar = new javax.swing.JTextArea();
         btnCargarArchivoEliminar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnReportes = new javax.swing.JButton();
@@ -124,9 +124,9 @@ public class Menu extends javax.swing.JFrame {
 
         btnReporte.addTab("Carga Datos", jPanel3);
 
-        jTextArea3.setColumns(20);
-        jTextArea3.setRows(5);
-        jScrollPane3.setViewportView(jTextArea3);
+        txtAreaELiminar.setColumns(20);
+        txtAreaELiminar.setRows(5);
+        jScrollPane3.setViewportView(txtAreaELiminar);
 
         btnCargarArchivoEliminar.setText(" Archivo Eliminar");
         btnCargarArchivoEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -249,6 +249,7 @@ public class Menu extends javax.swing.JFrame {
         int result = fileChooser.showOpenDialog(this);
         if (result != JFileChooser.CANCEL_OPTION) {
             File archivo = fileChooser.getSelectedFile();
+            la.eliminarFila(archivo, txtAreaELiminar);
 
         }
     }//GEN-LAST:event_btnCargarArchivoEliminarActionPerformed
@@ -304,7 +305,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
     private javax.swing.JTextArea txtAreaCargaDatos;
+    private javax.swing.JTextArea txtAreaELiminar;
     // End of variables declaration//GEN-END:variables
 }

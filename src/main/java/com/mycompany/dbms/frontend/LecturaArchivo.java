@@ -198,7 +198,7 @@ public class LecturaArchivo {
     }
 
     //ELIMINAR
-    public void eliminarFila(File archivo) {
+    public void eliminarFila(File archivo, JTextArea txtArea) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newDefaultInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
@@ -218,12 +218,12 @@ public class LecturaArchivo {
                         if (st.getLlave().equals(nombreNodo)) {
                             //Buscar en arbol y eliminar
                         } else {
-                            System.out.println(nombreNodo + ", No es llave primaria");
+                            txtArea.append(nombreNodo + ", No es llave primaria");
                         }
                     }
                 }
             } else {
-                System.out.println("La tabla de nombre: " + nombreEtiquetaRaiz + ", NO EXISTE");
+                txtArea.append("La tabla de nombre: " + nombreEtiquetaRaiz + ", NO EXISTE");
             }
         } catch (ParserConfigurationException | SAXException | IOException ex) {
         }

@@ -42,8 +42,4 @@ public class NodoColumna {
     public void setSiguiente(NodoColumna siguiente) {
         this.siguiente = siguiente;
     }
-    
-    
-    
-    
 }
