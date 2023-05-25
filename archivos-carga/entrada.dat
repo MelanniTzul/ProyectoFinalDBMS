@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clientes>
+    <cliente>
+        <Nit>08965555</Nit>
+        <Nombre>Marina</Nombre>
+        <Apellido>Rosales</Apellido>
+    </cliente>
+    <cliente>
+        <Nit>31223344</Nit>
+        <Nombre>Gustavo</Nombre>
+        <Apellido>Perez</Apellido>
+    </cliente>
+    <cliente>
+        <Nit>12345678</Nit>
+        <Nombre>Melanni</Nombre>
+        <Apellido>Tzul</Apellido>
+    </cliente>
+    <cliente>
+        <Nit>19345678</Nit>
+        <Nombre>Ronald</Nombre>
+        <Apellido>Tzul</Apellido>
+    </cliente>
+    <cliente>
+        <Nit>52345678</Nit>
+        <Nombre>Aukje</Nombre>
+        <Apellido>Tzul</Apellido>
+    </cliente>
+</clientes>
